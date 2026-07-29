@@ -1,0 +1,21 @@
+# Environment variables
+.env
+.env.local
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+
+# SQLite databases (Exclude runtime database from GitHub)
+*.db
+*.sqlite
+*.sqlite3
+
+# Node dependencies & Vite build outputs
+node_modules/
+dist/
+build/
+.DS_Store

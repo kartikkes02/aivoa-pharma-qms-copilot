@@ -1,0 +1,16 @@
+QUALITY DEFECT & CUSTOMER COMPLAINT FORM
+Origin: Hexagon Pharmaceuticals Quality Assurance Department
+Complaint Source: External Customer Audit / QA Notification
+Customer Name: Hexagon Pharma Ltd
+Complaint Date: 2026-07-24
+
+Product Name: Metformin Hydrochloride API
+Product Strength / Grade: IP/BP Grade
+Batch / Lot Number: MFH 26 C-H-G-2-6-0-7-1-2-A
+Manufacturing Date: 2026-01-15
+Expiry Date: 2029-01-14
+Quantity Affected: 100 kilograms (4 HDPE drums)
+Complaint Type: Out of Specification - Impurity Level / Appearance
+
+Detailed Complaint Description:
+During receiving inspection at Hexagon Pharma facility, Batch MFH 26 C-H-G-2-6-0-7-1-2-A of Metformin Hydrochloride API exhibited off-white crystalline clump formation with elevated related substance impurity levels (0.35% vs max 0.10%). Two HDPE drums show moisture ingress around inner liner seals.
