@@ -12,7 +12,7 @@ An automated pharmaceutical Quality Management System (QMS) Customer Complaint I
 │ 1. FRONTEND LAYER (React 18 + Redux Toolkit)                                           │
 │    User enters prompt OR uploads PDF in `AiCopilotChat.jsx`                            │
 │    ↓                                                                                   │
-│    Dispatches Axios POST request to `/api/agent/chat` or `/api/agent/extract-document`│
+│    Dispatches Axios POST request to `/api/agent/chat` or `/api/agent/extract-document` │
 └────────────────────────────────────────────────────────┬───────────────────────────────┘
                                                          │
                                                          ▼
