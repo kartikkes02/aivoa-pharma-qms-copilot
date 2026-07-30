@@ -10,8 +10,9 @@ import { setFullComplaint, clearUpdatedHighlights } from '../store/complaintSlic
 import { Upload, FileText, Send, Bot, User, CheckCircle2, Sparkles } from 'lucide-react';
 import axios from 'axios';
 
-// Base API URL configuration for local dev and production (e.g. Render backend)
-const API_BASE = import.meta.env.VITE_API_BASE_URL || '';
+// Base API URL configuration with trailing slash stripped automatically
+const RAW_API_BASE = import.meta.env.VITE_API_BASE_URL || '';
+const API_BASE = RAW_API_BASE.replace(/\/+$/, '');
 
 export default function AiCopilotChat() {
   const dispatch = useDispatch();
@@ -55,9 +56,10 @@ export default function AiCopilotChat() {
         dispatch(clearUpdatedHighlights());
       }, 4000);
     } catch (err) {
+      const errDetail = err.response?.data?.detail || err.message;
       dispatch(addMessage({
         sender: 'assistant',
-        text: `Error processing request: ${err.response?.data?.detail || err.message}`
+        text: `Error connecting to backend (${API_BASE || 'local'}): ${errDetail}. Note: Render free tier takes 30-50s to wake up if inactive.`
       }));
     } finally {
       dispatch(setIsProcessingMessage(false));
@@ -101,9 +103,10 @@ export default function AiCopilotChat() {
     } catch (err) {
       clearInterval(progressInterval);
       dispatch(setIsExtracting(false));
+      const errDetail = err.response?.data?.detail || err.message;
       dispatch(addMessage({
         sender: 'assistant',
-        text: `Failed to extract document: ${err.response?.data?.detail || err.message}`
+        text: `Failed to extract document: ${errDetail}`
       }));
     }
   };
@@ -129,6 +132,7 @@ export default function AiCopilotChat() {
   const handleUploadSamplePdf = async (filename) => {
     try {
       const response = await fetch(`${API_BASE}/api/samples/download/${filename}`);
+      if (!response.ok) throw new Error(`HTTP error ${response.status}`);
       const blob = await response.blob();
       const file = new File([blob], filename, { type: 'application/pdf' });
       handleFileUpload(file);
