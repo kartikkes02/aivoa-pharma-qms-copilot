@@ -42,7 +42,7 @@ An automated pharmaceutical Quality Management System (QMS) Customer Complaint I
 │    ↓                                                                                   │
 │    Redux Store dispatches `setFullComplaint` action in `complaintSlice.js`             │
 │    ↓                                                                                   │
-│    `ComplaintForm.jsx` & `RiskAssessment.jsx` re-render live with blue highlight pulse  │
+│    `ComplaintForm.jsx` & `RiskAssessment.jsx` re-render live with blue highlight pulse │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
