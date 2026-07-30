@@ -29,7 +29,7 @@ An automated pharmaceutical Quality Management System (QMS) Customer Complaint I
 │    `workflow.py` executes compiled `app_graph.invoke(state_input)`                     │
 │    ↓                                                                                   │
 │    `nodes.py`:                                                                         │
-│      ├── Intent Router: Distinguishes Initial Log vs Edit vs Document Extraction      │
+│      ├── Intent Router: Distinguishes Initial Log vs Edit vs Document Extraction       │
 │      ├── Extraction Node: Uses Groq LLM (`gemma2-9b-it`) to extract structured fields   │
 │      ├── Field Preserver: Modifies target fields while keeping existing state          │
 │      └── QA Risk Engine: Computes Risk Index, Recommended Action, Root Cause & CAPA    │
