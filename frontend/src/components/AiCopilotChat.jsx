@@ -10,6 +10,9 @@ import { setFullComplaint, clearUpdatedHighlights } from '../store/complaintSlic
 import { Upload, FileText, Send, Bot, User, CheckCircle2, Sparkles } from 'lucide-react';
 import axios from 'axios';
 
+// Base API URL configuration for local dev and production (e.g. Render backend)
+const API_BASE = import.meta.env.VITE_API_BASE_URL || '';
+
 export default function AiCopilotChat() {
   const dispatch = useDispatch();
   const messages = useSelector((state) => state.chat.messages);
@@ -36,7 +39,7 @@ export default function AiCopilotChat() {
     dispatch(setIsProcessingMessage(true));
 
     try {
-      const response = await axios.post('/api/agent/chat', {
+      const response = await axios.post(`${API_BASE}/api/agent/chat`, {
         message: messageText,
         current_complaint: currentComplaint
       });
@@ -76,7 +79,7 @@ export default function AiCopilotChat() {
     }, 250);
 
     try {
-      const res = await axios.post('/api/agent/extract-document', formData, {
+      const res = await axios.post(`${API_BASE}/api/agent/extract-document`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
 
@@ -125,7 +128,7 @@ export default function AiCopilotChat() {
   // Load sample PDF from backend for 1-click test upload
   const handleUploadSamplePdf = async (filename) => {
     try {
-      const response = await fetch(`/api/samples/download/${filename}`);
+      const response = await fetch(`${API_BASE}/api/samples/download/${filename}`);
       const blob = await response.blob();
       const file = new File([blob], filename, { type: 'application/pdf' });
       handleFileUpload(file);
