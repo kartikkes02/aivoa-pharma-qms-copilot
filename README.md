@@ -20,7 +20,7 @@ An automated pharmaceutical Quality Management System (QMS) Customer Complaint I
 │ 2. BACKEND API LAYER (FastAPI)                                                         │
 │    `endpoints.py` receives Pydantic request payload (`ChatRequest` / `UploadFile`)     │
 │    ↓                                                                                   │
-│    Calls `doc_parser.py` (if PDF/DOCX) to extract raw text                            │
+│    Calls `doc_parser.py` (if PDF/DOCX) to extract raw text                             │
 └────────────────────────────────────────────────────────┬───────────────────────────────┘
                                                          │
                                                          ▼
